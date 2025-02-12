@@ -10,13 +10,14 @@ import {
   styled
 } from '@mui/material';
 // import { Helmet } from 'react-helmet-async';
-// import useAuth from 'src/hooks/useAuth';
+// import { Helmet } from 'react-helmet';
+
+import useAuth from '../hooks/useAuth';
 // import Auth0Login from '../LoginAuth0';
 // import FirebaseAuthLogin from '../LoginFirebaseAuth';
 // import JWTLogin from '../LoginJWT';
 // import AmplifyLogin from '../LoginAmplify';
-// import { useTranslation } from 'react-i18next';
-// import Logo from 'src/components/LogoSign';
+import { useTranslation } from 'react-i18next';
 import Logo from '../components/LogoSign'
 
 const icons = {
@@ -73,8 +74,8 @@ const TopWrapper = styled(Box)(
 );
 
 function Login() {
-  // const { method } = useAuth() as any;
-  // const { t }: { t: any } = useTranslation();
+  const { method } = useAuth() as any;
+  const { t }: { t: any } = useTranslation();
 
   return (
     <>
@@ -100,7 +101,7 @@ function Login() {
                     mb: 1
                   }}
                 >
-                  {/* {t('Sign in')} */}
+                  {t('Sign in')}
                 </Typography>
                 <Typography
                   variant="h4"
@@ -110,7 +111,7 @@ function Login() {
                     mb: 3
                   }}
                 >
-                  {/* {t('Fill in the fields below to sign into your account.')} */}
+                  {t('Fill in the fields below to sign into your account.')}
                 </Typography>
               </Box>
               {/* {method === 'Auth0' && <Auth0Login />} */}
@@ -124,13 +125,13 @@ function Login() {
                   color="text.primary"
                   fontWeight="bold"
                 >
-                  {/* {t('Don’t have an account, yet?')} */}
+                  {t('Don’t have an account, yet?')}
                 </Typography>{' '}
-                {/* <Link component={RouterLink} to="/account/register-basic">
+                <Link component={RouterLink} to="/account/register-basic">
                   <b>Sign up here</b>
-                </Link> */}
+                </Link>
               </Box>
-              {/* {method !== 'Auth0' && (
+              {method !== 'Auth0' && (
                 <Tooltip
                   title={t('Used only for the live preview demonstration !')}
                 >
@@ -138,7 +139,7 @@ function Login() {
                     Use <b>demo@example.com</b> and password <b>TokyoPass1@</b>
                   </Alert>
                 </Tooltip>
-              )} */}
+              )}
             </Card>
             <BottomWrapper>
               <Tooltip arrow placement="top" title="Auth0">
@@ -164,9 +165,9 @@ function Login() {
             </BottomWrapper>
 
             <Alert severity="error">
-              {/* {t(
+              {t(
                 'Learn how to switch between auth methods by reading the section we’ve prepared in the documentation.'
-              )} */}
+              )}
             </Alert>
           </Container>
         </TopWrapper>
