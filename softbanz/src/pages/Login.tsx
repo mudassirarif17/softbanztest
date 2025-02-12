@@ -9,14 +9,15 @@ import {
   Alert,
   styled
 } from '@mui/material';
-import { Helmet } from 'react-helmet-async';
-import useAuth from 'src/hooks/useAuth';
-import Auth0Login from '../LoginAuth0';
-import FirebaseAuthLogin from '../LoginFirebaseAuth';
-import JWTLogin from '../LoginJWT';
-import AmplifyLogin from '../LoginAmplify';
-import { useTranslation } from 'react-i18next';
-import Logo from 'src/components/LogoSign';
+// import { Helmet } from 'react-helmet-async';
+// import useAuth from 'src/hooks/useAuth';
+// import Auth0Login from '../LoginAuth0';
+// import FirebaseAuthLogin from '../LoginFirebaseAuth';
+// import JWTLogin from '../LoginJWT';
+// import AmplifyLogin from '../LoginAmplify';
+// import { useTranslation } from 'react-i18next';
+// import Logo from 'src/components/LogoSign';
+import Logo from '../components/LogoSign'
 
 const icons = {
   Auth0: '/static/images/logo/auth0.svg',
@@ -37,9 +38,9 @@ const CardImg = styled(Card)(
     margin: 0 ${theme.spacing(1)};
     border: 1px solid ${theme.colors.alpha.black[10]};
     transition: ${theme.transitions.create(['all'])};
-
+    border-color: ${theme.colors.primary.main};
     &:hover {
-      border-color: ${theme.colors.primary.main};
+      
     }
 `
 );
@@ -72,14 +73,14 @@ const TopWrapper = styled(Box)(
 );
 
 function Login() {
-  const { method } = useAuth() as any;
-  const { t }: { t: any } = useTranslation();
+  // const { method } = useAuth() as any;
+  // const { t }: { t: any } = useTranslation();
 
   return (
     <>
-      <Helmet>
+      {/* <Helmet>
         <title>Login - Basic</title>
-      </Helmet>
+      </Helmet> */}
       <MainContent>
         <TopWrapper>
           <Container maxWidth="sm">
@@ -99,7 +100,7 @@ function Login() {
                     mb: 1
                   }}
                 >
-                  {t('Sign in')}
+                  {/* {t('Sign in')} */}
                 </Typography>
                 <Typography
                   variant="h4"
@@ -109,13 +110,13 @@ function Login() {
                     mb: 3
                   }}
                 >
-                  {t('Fill in the fields below to sign into your account.')}
+                  {/* {t('Fill in the fields below to sign into your account.')} */}
                 </Typography>
               </Box>
-              {method === 'Auth0' && <Auth0Login />}
-              {method === 'FirebaseAuth' && <FirebaseAuthLogin />}
-              {method === 'JWT' && <JWTLogin />}
-              {method === 'Amplify' && <AmplifyLogin />}
+              {/* {method === 'Auth0' && <Auth0Login />} */}
+              {/* {method === 'FirebaseAuth' && <FirebaseAuthLogin />} */}
+              {/* {method === 'JWT' && <JWTLogin />} */}
+              {/* {method === 'Amplify' && <AmplifyLogin />} */}
               <Box my={4}>
                 <Typography
                   component="span"
@@ -123,13 +124,13 @@ function Login() {
                   color="text.primary"
                   fontWeight="bold"
                 >
-                  {t('Don’t have an account, yet?')}
+                  {/* {t('Don’t have an account, yet?')} */}
                 </Typography>{' '}
-                <Link component={RouterLink} to="/account/register-basic">
+                {/* <Link component={RouterLink} to="/account/register-basic">
                   <b>Sign up here</b>
-                </Link>
+                </Link> */}
               </Box>
-              {method !== 'Auth0' && (
+              {/* {method !== 'Auth0' && (
                 <Tooltip
                   title={t('Used only for the live preview demonstration !')}
                 >
@@ -137,7 +138,7 @@ function Login() {
                     Use <b>demo@example.com</b> and password <b>TokyoPass1@</b>
                   </Alert>
                 </Tooltip>
-              )}
+              )} */}
             </Card>
             <BottomWrapper>
               <Tooltip arrow placement="top" title="Auth0">
@@ -163,9 +164,9 @@ function Login() {
             </BottomWrapper>
 
             <Alert severity="error">
-              {t(
+              {/* {t(
                 'Learn how to switch between auth methods by reading the section we’ve prepared in the documentation.'
-              )}
+              )} */}
             </Alert>
           </Container>
         </TopWrapper>
