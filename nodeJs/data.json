@@ -1,0 +1,234 @@
+{
+  "patients": [
+    {
+      "_id": "bf586e5b-bfa1-4d07-b706-3b2bb4f388c1",
+      "firstName": "Jane",
+      "lastName": "Doe",
+      "idNumber": "1245689",
+      "dateOfBirth": "2025-02-17",
+      "gender": "female",
+      "contactNumber": "0909876",
+      "email": "mail@mail.com",
+      "address": "123 road",
+      "medicalAidName": "",
+      "medicalAidNumber": "",
+      "condition": "",
+      "lastVisit": "2025-02-07",
+      "records": [
+        {
+          "_id": "4f3a0f1b-2436-43e9-a090-67510398a45d",
+          "date": "2025-02-07T20:36:42.136Z",
+          "bodyPart": "arm",
+          "reason": "Skin Change",
+          "images": [
+            {
+              "url": "/uploads/images/placeholder.jpg",
+              "name": "arm_1",
+              "notes": []
+            }
+          ],
+          "riskLevel": "monitor",
+          "icdCodes": [],
+          "notes": "",
+          "soapNotes": null,
+          "createdAt": "2025-02-07T20:36:56.118Z",
+          "updatedAt": "2025-02-07T20:37:16.791Z",
+          "patientId": "bf586e5b-bfa1-4d07-b706-3b2bb4f388c1"
+        },
+        {
+          "_id": "f4293093-2568-4918-a051-8bda295f728a",
+          "date": "2025-02-07T20:39:22.875Z",
+          "bodyPart": "arm",
+          "reason": "Mole Mapping",
+          "images": [
+            {
+              "url": "/uploads/images/813e2615-c17a-40ed-99b3-2374c3699ceb.jpg",
+              "name": "Extended_arm.jpg",
+              "notes": [
+                {
+                  "text": "notes",
+                  "date": "2025-02-07T21:44:08.502Z"
+                }
+              ]
+            },
+            {
+              "file": {},
+              "preview": "blob:http://localhost:3001/8debf8b3-776d-4216-aca3-6575b8b557e8",
+              "name": "arm_2",
+              "notes": []
+            }
+          ],
+          "riskLevel": "monitor",
+          "icdCodes": [],
+          "notes": "",
+          "soapNotes": null,
+          "createdAt": "2025-02-07T20:39:42.953Z",
+          "updatedAt": "2025-02-07T21:44:08.511Z",
+          "patientId": "bf586e5b-bfa1-4d07-b706-3b2bb4f388c1"
+        },
+        {
+          "_id": "2604086c-498a-4231-8396-51fed3efbd18",
+          "date": "2025-02-07T21:46:12.848Z",
+          "bodyPart": {
+            "x": 0.04519012571892336,
+            "y": 0.6799252173917307,
+            "z": 0.13187908705504975
+          },
+          "reason": "Skin Change",
+          "images": [
+            {
+              "url": "/uploads/images/ec7616f7-f9ec-47c3-9efc-da70214b823f.jpeg",
+              "name": "images-2.jpeg"
+            }
+          ],
+          "riskLevel": "high",
+          "icdCodes": [],
+          "notes": "",
+          "soapNotes": null,
+          "createdAt": "2025-02-07T21:46:27.834Z",
+          "updatedAt": "2025-02-07T21:46:27.834Z",
+          "patientId": "bf586e5b-bfa1-4d07-b706-3b2bb4f388c1"
+        },
+        {
+          "_id": "f8cf4777-3ba2-4736-9520-8157d86b8189",
+          "date": "2025-02-07T21:47:35.298Z",
+          "bodyPart": "(0.03, 0.78, 0.15)",
+          "reason": "Mole Mapping",
+          "images": [
+            {
+              "url": "/uploads/images/56feb801-f9f4-4178-9434-4bb9e441644f.jpeg",
+              "name": "images-2.jpeg"
+            }
+          ],
+          "riskLevel": "monitor",
+          "icdCodes": [],
+          "notes": "",
+          "soapNotes": null,
+          "createdAt": "2025-02-07T21:47:48.695Z",
+          "updatedAt": "2025-02-07T21:47:48.695Z",
+          "patientId": "bf586e5b-bfa1-4d07-b706-3b2bb4f388c1"
+        }
+      ],
+      "createdAt": "2025-02-07T20:36:35.536Z",
+      "updatedAt": "2025-02-11T13:18:07.269Z",
+      "markers": [
+        {
+          "position": {
+            "x": 0.031086098065420127,
+            "y": 0.7823433397101682,
+            "z": 0.146808625393944
+          },
+          "date": "2025-02-07T21:47:35.286Z"
+        },
+        {
+          "position": {
+            "x": 0,
+            "y": 0.8519951098889502,
+            "z": 0.15719951354000267
+          },
+          "date": "2025-02-07T21:48:57.220Z"
+        },
+        {
+          "position": {
+            "x": 0.29249706258504266,
+            "y": 0.7861090324644947,
+            "z": 0.03523888211186375
+          },
+          "date": "2025-02-07T21:49:00.205Z"
+        },
+        {
+          "position": {
+            "x": 0.2995665620847211,
+            "y": 0.7950651350502869,
+            "z": 0.027267490526589812
+          },
+          "date": "2025-02-07T22:00:20.028Z"
+        },
+        {
+          "position": {
+            "x": -0.20490481256158682,
+            "y": 0.8829387191531115,
+            "z": 0.038891555750889144
+          },
+          "date": "2025-02-07T22:00:22.928Z"
+        },
+        {
+          "position": {
+            "x": -0.26262546435479744,
+            "y": 0.7995935273278608,
+            "z": 0.03994001831006884
+          },
+          "date": "2025-02-07T22:00:33.330Z"
+        },
+        {
+          "position": {
+            "x": -0.07487634783099764,
+            "y": 0.39565642875666496,
+            "z": 0.05549536433520608
+          },
+          "date": "2025-02-07T22:01:32.698Z"
+        },
+        {
+          "position": {
+            "x": -0.27899492038710383,
+            "y": 0.7786523485678574,
+            "z": 0.03969499530154508
+          },
+          "date": "2025-02-07T22:03:05.450Z"
+        },
+        {
+          "position": {
+            "x": -0.04703077509370901,
+            "y": 0.21570257507030513,
+            "z": 0.045038057889425435
+          },
+          "date": "2025-02-11T13:17:51.285Z"
+        },
+        {
+          "position": {
+            "x": -0.10225627227891537,
+            "y": 0.8676613902076646,
+            "z": -0.12047825150174525
+          },
+          "date": "2025-02-11T13:18:07.262Z"
+        }
+      ]
+    },
+    {
+      "_id": "be3e6f35-642a-4891-8dfe-b4956a2d42e0",
+      "firstName": "Jane",
+      "lastName": "Doe",
+      "idNumber": "0988624734",
+      "dateOfBirth": "2024-06-05",
+      "gender": "female",
+      "contactNumber": "0987765",
+      "email": "email@email.com",
+      "address": "123 Cape Town",
+      "medicalAidName": "",
+      "medicalAidNumber": "",
+      "condition": "",
+      "lastVisit": "2025-02-10",
+      "records": [],
+      "createdAt": "2025-02-10T12:08:56.923Z",
+      "updatedAt": "2025-02-10T12:08:56.923Z"
+    },
+    {
+      "_id": "4b7c68bf-9cf7-4489-b2a3-3fc102b693bf",
+      "firstName": "reg",
+      "lastName": "df",
+      "idNumber": "dfg",
+      "dateOfBirth": "2025-02-12",
+      "gender": "male",
+      "contactNumber": "ergf",
+      "email": "dfg@gn.com",
+      "address": "gf",
+      "medicalAidName": "",
+      "medicalAidNumber": "",
+      "condition": "",
+      "lastVisit": "2025-02-11",
+      "records": [],
+      "createdAt": "2025-02-11T13:14:51.225Z",
+      "updatedAt": "2025-02-11T13:14:51.225Z"
+    }
+  ]
+}
