@@ -15,7 +15,7 @@ import {
 } from "@mui/material";
 
 import { useTranslation } from "react-i18next";
-import Logo from "../components/LogoSign";
+import Logo from "../../components/LogoSign";
 
 const icons = {
   Auth0: "/static/images/logo/auth0.svg",

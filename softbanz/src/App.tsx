@@ -1,9 +1,8 @@
-import React from 'react'
 import ThemeProvider from './theme/ThemeProvider';
 // import LocalizationProvider from '@mui/lab/LocalizationProvider';
-import Login from './pages/Login'
+import Login from './pages/Login/Login'
 import { Route, Routes } from 'react-router-dom';
-import PatientList from './pages/PatientList';
+import PatientList from './pages/PatientList/PatientList';
 
 const App = () => {
   return (
