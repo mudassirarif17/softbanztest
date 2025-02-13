@@ -7,13 +7,20 @@ import {
   Typography,
   Container,
   Alert,
-  styled
+  styled,
+  Button,
+  Divider,
+  FormHelperText,
+  Checkbox,
+  FormControlLabel,
+  TextField,
+  CircularProgress,
 } from '@mui/material';
 // import { Helmet } from 'react-helmet-async';
 // import { Helmet } from 'react-helmet';
 
 import useAuth from '../hooks/useAuth';
-// import Auth0Login from '../LoginAuth0';
+import Auth0Login from './LoginAuth0';
 // import FirebaseAuthLogin from '../LoginFirebaseAuth';
 // import JWTLogin from '../LoginJWT';
 // import AmplifyLogin from '../LoginAmplify';
@@ -74,7 +81,7 @@ const TopWrapper = styled(Box)(
 );
 
 function Login() {
-  const { method } = useAuth() as any;
+  // const { method } = useAuth() as any;
   const { t }: { t: any } = useTranslation();
 
   return (
@@ -114,10 +121,70 @@ function Login() {
                   {t('Fill in the fields below to sign into your account.')}
                 </Typography>
               </Box>
-              {/* {method === 'Auth0' && <Auth0Login />} */}
-              {/* {method === 'FirebaseAuth' && <FirebaseAuthLogin />} */}
-              {/* {method === 'JWT' && <JWTLogin />} */}
-              {/* {method === 'Amplify' && <AmplifyLogin />} */}
+
+              <TextField
+              fullWidth
+              label={t('Email address')}
+              placeholder={t('Your email address here...')}
+              margin="normal"
+              name="email"
+              type="email"
+              variant="outlined"
+            />
+            <TextField
+              fullWidth
+              label={t('Password')}
+              placeholder={t('Your password here...')}
+              margin="normal"
+              name="password"
+              type="password"
+              variant="outlined"
+            />
+
+<Box
+              alignItems="center"
+              display={{ xs: 'block', md: 'flex' }}
+              justifyContent="space-between"
+            >
+              <Box display={{ xs: 'block', md: 'flex' }}>
+                <FormControlLabel
+                  control={
+                    <Checkbox
+                      name="terms"
+                      color="primary"
+                    />
+                  }
+                  label={
+                    <>
+                      <Typography variant="body2">
+                        {t('I accept the')}{' '}
+                        <Link component="a" href="#">
+                          {t('terms and conditions')}
+                        </Link>
+                        .
+                      </Typography>
+                    </>
+                  }
+                />
+              </Box>
+              <Link component={RouterLink} to="/account/recover-password">
+                <b>{t('Lost password?')}</b>
+              </Link>
+            </Box>
+            
+            <Button
+              sx={{
+                mt: 3
+              }}
+              color="primary"
+              size="large"
+              fullWidth
+              type="submit"
+              variant="contained"
+            >
+              {t('Sign in')}
+            </Button>
+
               <Box my={4}>
                 <Typography
                   component="span"
@@ -131,7 +198,7 @@ function Login() {
                   <b>Sign up here</b>
                 </Link>
               </Box>
-              {method !== 'Auth0' && (
+              
                 <Tooltip
                   title={t('Used only for the live preview demonstration !')}
                 >
@@ -139,7 +206,7 @@ function Login() {
                     Use <b>demo@example.com</b> and password <b>TokyoPass1@</b>
                   </Alert>
                 </Tooltip>
-              )}
+              
             </Card>
             <BottomWrapper>
               <Tooltip arrow placement="top" title="Auth0">
