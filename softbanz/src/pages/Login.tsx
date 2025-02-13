@@ -1,4 +1,4 @@
-import { Link as RouterLink } from 'react-router-dom';
+import { Link as RouterLink } from "react-router-dom";
 import {
   Box,
   Card,
@@ -9,29 +9,19 @@ import {
   Alert,
   styled,
   Button,
-  Divider,
-  FormHelperText,
   Checkbox,
   FormControlLabel,
   TextField,
-  CircularProgress,
-} from '@mui/material';
-// import { Helmet } from 'react-helmet-async';
-// import { Helmet } from 'react-helmet';
+} from "@mui/material";
 
-import useAuth from '../hooks/useAuth';
-import Auth0Login from './LoginAuth0';
-// import FirebaseAuthLogin from '../LoginFirebaseAuth';
-// import JWTLogin from '../LoginJWT';
-// import AmplifyLogin from '../LoginAmplify';
-import { useTranslation } from 'react-i18next';
-import Logo from '../components/LogoSign'
+import { useTranslation } from "react-i18next";
+import Logo from "../components/LogoSign";
 
 const icons = {
-  Auth0: '/static/images/logo/auth0.svg',
-  FirebaseAuth: '/static/images/logo/firebase.svg',
-  JWT: '/static/images/logo/jwt.svg',
-  Amplify: '/static/images/logo/amplify.svg'
+  Auth0: "/static/images/logo/auth0.svg",
+  FirebaseAuth: "/static/images/logo/firebase.svg",
+  JWT: "/static/images/logo/jwt.svg",
+  Amplify: "/static/images/logo/amplify.svg",
 };
 
 const CardImg = styled(Card)(
@@ -45,7 +35,7 @@ const CardImg = styled(Card)(
     background: ${theme.colors.alpha.white[100]};
     margin: 0 ${theme.spacing(1)};
     border: 1px solid ${theme.colors.alpha.black[10]};
-    transition: ${theme.transitions.create(['all'])};
+    transition: ${theme.transitions.create(["all"])};
     border-color: ${theme.colors.primary.main};
     &:hover {
       
@@ -89,6 +79,7 @@ function Login() {
       {/* <Helmet>
         <title>Login - Basic</title>
       </Helmet> */}
+
       <MainContent>
         <TopWrapper>
           <Container maxWidth="sm">
@@ -98,50 +89,50 @@ function Login() {
                 mt: 3,
                 px: 4,
                 pt: 5,
-                pb: 3
+                pb: 3,
               }}
             >
               <Box>
                 <Typography
                   variant="h2"
                   sx={{
-                    mb: 1
+                    mb: 1,
                   }}
                 >
-                  {t('Sign in')}
+                  {t("Sign in")}
                 </Typography>
                 <Typography
                   variant="h4"
                   color="text.secondary"
                   fontWeight="normal"
                   sx={{
-                    mb: 3
+                    mb: 3,
                   }}
                 >
-                  {t('Fill in the fields below to sign into your account.')}
+                  {t("Fill in the fields below to sign into your account.")}
                 </Typography>
               </Box>
 
               <TextField
-              fullWidth
-              label={t('Email address')}
-              placeholder={t('Your email address here...')}
-              margin="normal"
-              name="email"
-              type="email"
-              variant="outlined"
-            />
-            <TextField
-              fullWidth
-              label={t('Password')}
-              placeholder={t('Your password here...')}
-              margin="normal"
-              name="password"
-              type="password"
-              variant="outlined"
-            />
+                fullWidth
+                label={t("User Name")}
+                placeholder={t("Your User Name here...")}
+                margin="normal"
+                name="email"
+                type="email"
+                variant="outlined"
+              />
+              <TextField
+                fullWidth
+                label={t("Password")}
+                placeholder={t("Your password here...")}
+                margin="normal"
+                name="password"
+                type="password"
+                variant="outlined"
+              />
 
-<Box
+              {/* <Box
               alignItems="center"
               display={{ xs: 'block', md: 'flex' }}
               justifyContent="space-between"
@@ -167,25 +158,27 @@ function Login() {
                   }
                 />
               </Box>
+
               <Link component={RouterLink} to="/account/recover-password">
                 <b>{t('Lost password?')}</b>
               </Link>
-            </Box>
-            
-            <Button
-              sx={{
-                mt: 3
-              }}
-              color="primary"
-              size="large"
-              fullWidth
-              type="submit"
-              variant="contained"
-            >
-              {t('Sign in')}
-            </Button>
 
-              <Box my={4}>
+            </Box> */}
+
+              <Button
+                sx={{
+                  mt: 3,
+                }}
+                color="primary"
+                size="large"
+                fullWidth
+                type="submit"
+                variant="contained"
+              >
+                {t("Sign in")}
+              </Button>
+
+              {/* <Box my={4}>
                 <Typography
                   component="span"
                   variant="subtitle2"
@@ -194,21 +187,30 @@ function Login() {
                 >
                   {t('Don’t have an account, yet?')}
                 </Typography>{' '}
+
                 <Link component={RouterLink} to="/account/register-basic">
                   <b>Sign up here</b>
                 </Link>
-              </Box>
-              
-                <Tooltip
+
+              </Box> */}
+
+              {/* <Tooltip
                   title={t('Used only for the live preview demonstration !')}
                 >
                   <Alert severity="warning">
                     Use <b>demo@example.com</b> and password <b>TokyoPass1@</b>
                   </Alert>
-                </Tooltip>
-              
+                </Tooltip> */}
+
+              <Alert severity="error" sx={{marginY : 4}}>
+                {t(
+                  "Learn how to switch between auth methods by reading the section we’ve prepared in the documentation."
+                )}
+              </Alert>
             </Card>
-            <BottomWrapper>
+
+            {/* Icon Code */}
+            {/* <BottomWrapper>
               <Tooltip arrow placement="top" title="Auth0">
                 <CardImg>
                   <img height={50} alt="Auth0" src={icons['Auth0']} />
@@ -229,13 +231,8 @@ function Login() {
                   <img height={50} alt="Amplify" src={icons['Amplify']} />
                 </CardImg>
               </Tooltip>
-            </BottomWrapper>
-
-            <Alert severity="error">
-              {t(
-                'Learn how to switch between auth methods by reading the section we’ve prepared in the documentation.'
-              )}
-            </Alert>
+            </BottomWrapper> */}
+            
           </Container>
         </TopWrapper>
       </MainContent>
