@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react';
-import useAuth from 'src/hooks/useAuth';
+import useAuth from '../../../../hooks/useAuth';
 import { NavLink, useNavigate, useLocation } from 'react-router-dom';
 
 import {
@@ -130,7 +130,7 @@ function Userbox() {
   return (
     <>
       <UserBoxButton fullWidth color="secondary" ref={ref} onClick={handleOpen}>
-        <Avatar variant="rounded" alt={user.name} src={user.avatar} />
+        {/* <Avatar variant="rounded" alt={user.name} src={user.avatar} /> */}
         <Box
           display="flex"
           flex={1}
@@ -144,9 +144,9 @@ function Userbox() {
             }}
           >
             <UserBoxText>
-              <UserBoxLabelMain variant="body1">{user.name}</UserBoxLabelMain>
+              {/* <UserBoxLabelMain variant="body1">{user.name}</UserBoxLabelMain> */}
               <UserBoxDescriptionMain variant="body2">
-                {user.jobtitle}
+                {/* {user.jobtitle} */}
               </UserBoxDescriptionMain>
             </UserBoxText>
           </Box>
@@ -178,11 +178,11 @@ function Userbox() {
           }}
           display="flex"
         >
-          <Avatar variant="rounded" alt={user.name} src={user.avatar} />
+          {/* <Avatar variant="rounded" alt={user.name} src={user.avatar} /> */}
           <UserBoxText>
-            <UserBoxLabel variant="body1">{user.name}</UserBoxLabel>
+            {/* <UserBoxLabel variant="body1">{user.name}</UserBoxLabel> */}
             <UserBoxDescription variant="body2">
-              {user.jobtitle}
+              {/* {user.jobtitle} */}
             </UserBoxDescription>
           </UserBoxText>
         </MenuUserBox>

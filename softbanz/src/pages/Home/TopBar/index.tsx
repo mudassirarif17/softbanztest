@@ -12,7 +12,7 @@ import {
   styled,
   useTheme
 } from '@mui/material';
-import { SidebarContext } from 'src/contexts/SidebarContext';
+import { SidebarContext } from '../../../contexts/SidebarContext';
 import NavigationMenu from './NavigationMenu';
 import LanguageSwitcher from './LanguageSwitcher';
 import Notifications from './Notifications';

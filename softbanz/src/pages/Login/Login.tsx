@@ -61,14 +61,12 @@ const MainContent = styled(Box)(
 `
 );
 
-const TopWrapper = styled(Box)(
-  () => `
+const TopWrapper = styled(Box)`
   display: flex;
   width: 100%;
   flex: 1;
-  padding: 20px;
-`
-);
+  padding-top : 20px;
+`;
 
 function Login() {
   // const { method } = useAuth() as any;

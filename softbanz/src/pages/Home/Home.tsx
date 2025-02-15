@@ -12,9 +12,8 @@ import { Outlet } from 'react-router-dom';
 import TopBar from './TopBar';
 import Scrollbar from '../../components/Scrollbar';
 import { SidebarContext } from '../../contexts/SidebarContext';
-import SidebarMenu from 'src/layouts/AccentHeaderLayout/Sidebar/SidebarMenu';
-// import SidebarMenu from '../../../';
-import SidebarTopSection from 'src/layouts/AccentHeaderLayout/Sidebar/SidebarTopSection';
+import SidebarMenu from '../../layouts/AccentHeaderLayout/Sidebar/SidebarMenu';
+import SidebarTopSection from '../../layouts/AccentHeaderLayout/Sidebar/SidebarTopSection';
 import ThemeSettings from '../../components/ThemeSettings';
 import Logo from '../../components/LogoSign';
 
