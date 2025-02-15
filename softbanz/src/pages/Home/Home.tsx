@@ -16,6 +16,8 @@ import SidebarMenu from '../../layouts/AccentHeaderLayout/Sidebar/SidebarMenu';
 import SidebarTopSection from '../../layouts/AccentHeaderLayout/Sidebar/SidebarTopSection';
 import ThemeSettings from '../../components/ThemeSettings';
 import Logo from '../../components/LogoSign';
+import PatientList from '../PatientList/index';
+
 
 interface TopNavigationLayoutProps {
   children?: ReactNode;
@@ -96,9 +98,13 @@ const Home: FC<TopNavigationLayoutProps> = () => {
         <TopBar />
         <MainContent maxWidth="xl">
           <Box mx={8}>
+
+          
             <CardWrapper>
-              <Outlet />
-            </CardWrapper>
+                <PatientList />
+            </CardWrapper> 
+         
+
           </Box>
           <Drawer
             sx={{

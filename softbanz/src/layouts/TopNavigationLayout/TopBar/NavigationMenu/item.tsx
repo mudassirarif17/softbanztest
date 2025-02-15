@@ -1,7 +1,7 @@
 import { FC, ReactNode, useState, useContext, MouseEvent } from 'react';
 import { NavLink as RouterLink } from 'react-router-dom';
 import clsx from 'clsx';
-import { SidebarContext } from 'src/contexts/SidebarContext';
+import { SidebarContext } from '../../../../contexts/SidebarContext';
 
 import PropTypes from 'prop-types';
 import {
@@ -15,7 +15,7 @@ import {
 } from '@mui/material';
 import KeyboardArrowDownTwoToneIcon from '@mui/icons-material/KeyboardArrowDownTwoTone';
 import KeyboardArrowUpTwoToneIcon from '@mui/icons-material/KeyboardArrowUpTwoTone';
-import Scrollbar from 'src/components/Scrollbar';
+import Scrollbar from '../../../../components/Scrollbar';
 
 const IndicatorWrapper = styled(Box)(
   () => `

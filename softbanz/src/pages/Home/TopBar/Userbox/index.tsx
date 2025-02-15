@@ -130,7 +130,7 @@ function Userbox() {
   return (
     <>
       <UserBoxButton fullWidth color="secondary" ref={ref} onClick={handleOpen}>
-        {/* <Avatar variant="rounded" alt={user.name} src={user.avatar} /> */}
+        <Avatar variant="rounded" alt={""} src={""} />
         <Box
           display="flex"
           flex={1}
@@ -144,9 +144,9 @@ function Userbox() {
             }}
           >
             <UserBoxText>
-              {/* <UserBoxLabelMain variant="body1">{user.name}</UserBoxLabelMain> */}
+              <UserBoxLabelMain variant="body1">Mudassir Arif</UserBoxLabelMain>
               <UserBoxDescriptionMain variant="body2">
-                {/* {user.jobtitle} */}
+                Lead Developer
               </UserBoxDescriptionMain>
             </UserBoxText>
           </Box>
@@ -178,11 +178,11 @@ function Userbox() {
           }}
           display="flex"
         >
-          {/* <Avatar variant="rounded" alt={user.name} src={user.avatar} /> */}
+          <Avatar variant="rounded" alt={""} src={""} />
           <UserBoxText>
-            {/* <UserBoxLabel variant="body1">{user.name}</UserBoxLabel> */}
+            <UserBoxLabel variant="body1">Mudassir Arif</UserBoxLabel>
             <UserBoxDescription variant="body2">
-              {/* {user.jobtitle} */}
+              Lead Developer
             </UserBoxDescription>
           </UserBoxText>
         </MenuUserBox>

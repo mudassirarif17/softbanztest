@@ -40,9 +40,7 @@ const SubMenuWrapper = styled(Box)(
         justify-content: center;
         width: auto;
 
-        &:last-child {
-          margin-left: auto;
-        }
+        
     
         .MuiIconButton-root {
           display: flex;
