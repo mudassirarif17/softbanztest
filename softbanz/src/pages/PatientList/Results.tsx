@@ -212,7 +212,7 @@ const applyPagination = (
   return projects.slice(page * limit, page * limit + limit);
 };
 
-const Results: FC<ResultsProps> = ({ projects }) => {
+const Results: FC<ResultsProps> = ({ patient }) => {
   const [selectedItems, setSelectedProjects] = useState<string[]>([]);
   const { t }: { t: any } = useTranslation();
   // const { enqueueSnackbar } = useSnackbar();
@@ -297,12 +297,12 @@ const Results: FC<ResultsProps> = ({ projects }) => {
     setLimit(parseInt(event.target.value));
   };
 
-  const filteredProjects = applyFilters(projects, query, filters);
-  const paginatedProjects = applyPagination(filteredProjects, page, limit);
+  // const filteredProjects = applyFilters(projects, query, filters);
+  // const paginatedProjects = applyPagination(filteredProjects, page, limit);
   const selectedBulkActions = selectedItems.length > 0;
-  const selectedSomeProjects =
-    selectedItems.length > 0 && selectedItems.length < projects.length;
-  const selectedAllProjects = selectedItems.length === projects.length;
+  // const selectedSomeProjects =
+    // selectedItems.length > 0 && selectedItems.length < projects.length;
+  // const selectedAllProjects = selectedItems.length === projects.length;
 
   const [toggleView, setToggleView] = useState<string | null>('table_view');
 
@@ -460,20 +460,23 @@ const Results: FC<ResultsProps> = ({ projects }) => {
                 </Typography>{' '}
                 <b>0</b> <b>{t('patients')}</b>
               </Box>
-              <TablePagination
+
+              {/* <TablePagination
                 component="div"
-                count={filteredProjects.length}
+                // count={filteredProjects.length}
                 onPageChange={handlePageChange}
                 onRowsPerPageChange={handleLimitChange}
                 page={page}
                 rowsPerPage={limit}
                 rowsPerPageOptions={[5, 10, 15]}
-              />
+              /> */}
+
+
             </Box>
           )}
           <Divider />
 
-          {paginatedProjects.length === 0 ? (
+          {/* {paginatedProjects.length !== 0 ? (
             <>
               <Typography
                 sx={{
@@ -489,40 +492,48 @@ const Results: FC<ResultsProps> = ({ projects }) => {
                 )}
               </Typography>
             </>
-          ) : (
+          ) : ( */}
             <>
               <TableContainer>
                 <Table>
                   <TableHead>
                     <TableRow>
-                      <TableCell padding="checkbox">
+
+                      {/* <TableCell padding="checkbox">
                         <Checkbox
                           checked={selectedAllProjects}
                           indeterminate={selectedSomeProjects}
                           onChange={handleSelectAllProjects}
                         />
-                      </TableCell>
-                      <TableCell>{t('Name')}</TableCell>
-                      <TableCell>{t('Tags')}</TableCell>
-                      <TableCell>{t('Time Left')}</TableCell>
-                      <TableCell>{t('Members')}</TableCell>
-                      <TableCell>{t('Progress')}</TableCell>
-                      <TableCell>{t('Status')}</TableCell>
+                      </TableCell> */}
+
+                      <TableCell>{t('ID')}</TableCell>
+                      <TableCell>{t('First Name')}</TableCell>
+                      <TableCell>{t('Last Name')}</TableCell>
+                      <TableCell>{t('Date Of Birth')}</TableCell>
+                      <TableCell>{t('Gender')}</TableCell>
+                      <TableCell>{t('Contact')}</TableCell>
+                      <TableCell>{t('Email')}</TableCell>
+                      <TableCell>{t('Address')}</TableCell>
+                      <TableCell>{t('Last Visit')}</TableCell>
                       <TableCell align="center">{t('Actions')}</TableCell>
                     </TableRow>
                   </TableHead>
                   <TableBody>
-                    {paginatedProjects.map((project) => {
+                    {/* {paginatedProjects.map((project) => {
                       const isProjectSelected = selectedItems.includes(
                         project.id
                       );
-                      return (
+                      return ( */}
+
                         <TableRow
                           hover
-                          key={project.id}
-                          selected={isProjectSelected}
+                          // key={project.id}
+                          // selected={isProjectSelected}
                         >
-                          <TableCell padding="checkbox">
+
+                          {/* <TableCell padding="checkbox">
+
                             <Checkbox
                               checked={isProjectSelected}
                               onChange={(event) =>
@@ -530,96 +541,73 @@ const Results: FC<ResultsProps> = ({ projects }) => {
                               }
                               value={isProjectSelected}
                             />
-                          </TableCell>
+
+                          </TableCell> */}
+
                           <TableCell>
                             <Typography noWrap variant="h5">
-                              {project.name}
+                              {/* {project.name} */}
+                              1
                             </Typography>
                           </TableCell>
+
                           <TableCell>
-                            {project.tags.map((value) => {
-                              return (
-                                <span key={value}>
-                                  <Link href="#">{value}</Link>,{' '}
-                                </span>
-                              );
-                            })}
-                          </TableCell>
-                          <TableCell>
-                            <Typography
-                              noWrap
-                              variant="subtitle1"
-                              color="text.primary"
-                            >
-                              {t('Due')}
-                              <b>
-                                {' '}
-                                {formatDistance(
-                                  project.startDate,
-                                  project.dueDate,
-                                  {
-                                    addSuffix: true
-                                  }
-                                )}
-                              </b>
-                            </Typography>
-                            <Typography noWrap color="text.secondary">
-                              {t('Started')}:{' '}
-                              {format(project.dueDate, 'MMMM dd yyyy')}
-                            </Typography>
-                          </TableCell>
-                          <TableCell>
-                            <Box display="flex" justifyContent="flex-start">
-                              {project.memberIds.length > 0 && (
-                                <AvatarGroup max={4}>
-                                  {project.memberIds.map((member) => (
-                                    <Tooltip
-                                      arrow
-                                      placement="top"
-                                      key={member.id}
-                                      title={member.name}
-                                    >
-                                      <Avatar
-                                        sx={{
-                                          width: 30,
-                                          height: 30
-                                        }}
-                                        key={member.id}
-                                        src={""}
-                                      />
-                                    </Tooltip>
-                                  ))}
-                                </AvatarGroup>
-                              )}
-                            </Box>
-                          </TableCell>
-                          <TableCell align="center">
-                            <Box
-                              sx={{
-                                minWidth: 175
-                              }}
-                              display="flex"
-                              alignItems="center"
-                            >
-                              <LinearProgress
-                                sx={{
-                                  flex: 1,
-                                  mr: 1
-                                }}
-                                value={project.progress}
-                                color="primary"
-                                variant="determinate"
-                              />
-                              <Typography variant="subtitle1">
-                                {project.progress}%
+                              <Typography noWrap variant="h5">
+                                {/* {project.name} */}
+                                Muhammad
                               </Typography>
-                            </Box>
                           </TableCell>
+
                           <TableCell>
-                            <Typography noWrap>
-                              {getProjectStatusLabel(project.status)}
-                            </Typography>
+                          <Typography noWrap variant="h5">
+                                {/* {project.name} */}
+                                Mudassir
+                              </Typography>
                           </TableCell>
+
+                          <TableCell>
+                          <Typography noWrap variant="h5">
+                                {/* {project.name} */}
+                                17-10-2001
+                              </Typography>
+                          </TableCell>
+
+                          <TableCell>
+                          <Typography noWrap variant="h5">
+                                {/* {project.name} */}
+                                Male
+                              </Typography>
+                          </TableCell>
+
+                          <TableCell>
+                          <Typography noWrap variant="h5">
+                                {/* {project.name} */}
+                                03357486654
+                              </Typography>
+                          </TableCell>
+
+                          <TableCell>
+                          <Typography noWrap variant="h5">
+                                {/* {project.name} */}
+                                mudassir@gmail.com
+                              </Typography>
+                          </TableCell>
+
+                          <TableCell>
+                          <Typography noWrap variant="h5">
+                                {/* {project.name} */}
+                                Garden West karachi
+                              </Typography>
+                          </TableCell>
+
+                          <TableCell>
+                          <Typography noWrap variant="h5">
+                                {/* {project.name} */}
+                                10-02-25
+                              </Typography>
+                          </TableCell>
+
+              
                           <TableCell align="center">
                             <Typography noWrap>
                               <Tooltip title={t('View')} arrow>
@@ -637,16 +625,120 @@ const Results: FC<ResultsProps> = ({ projects }) => {
                               </Tooltip>
                             </Typography>
                           </TableCell>
+
                         </TableRow>
-                      );
-                    })}
+
+                        <TableRow
+                          hover
+                          // key={project.id}
+                          // selected={isProjectSelected}
+                        >
+
+                          {/* <TableCell padding="checkbox">
+
+                            <Checkbox
+                              checked={isProjectSelected}
+                              onChange={(event) =>
+                                handleSelectOneProject(event, project.id)
+                              }
+                              value={isProjectSelected}
+                            />
+
+                          </TableCell> */}
+
+                          <TableCell>
+                            <Typography noWrap variant="h5">
+                              {/* {project.name} */}
+                              2
+                            </Typography>
+                          </TableCell>
+
+                          <TableCell>
+                              <Typography noWrap variant="h5">
+                                {/* {project.name} */}
+                                Bilal
+                              </Typography>
+                          </TableCell>
+
+                          <TableCell>
+                          <Typography noWrap variant="h5">
+                                {/* {project.name} */}
+                                Sohail
+                              </Typography>
+                          </TableCell>
+
+                          <TableCell>
+                          <Typography noWrap variant="h5">
+                                {/* {project.name} */}
+                                17-10-2025
+                              </Typography>
+                          </TableCell>
+
+                          <TableCell>
+                          <Typography noWrap variant="h5">
+                                {/* {project.name} */}
+                                Male
+                              </Typography>
+                          </TableCell>
+
+                          <TableCell>
+                          <Typography noWrap variant="h5">
+                                {/* {project.name} */}
+                                03357486654
+                              </Typography>
+                          </TableCell>
+
+                          <TableCell>
+                          <Typography noWrap variant="h5">
+                                {/* {project.name} */}
+                                bilal@gmail.com
+                              </Typography>
+                          </TableCell>
+
+                          <TableCell>
+                          <Typography noWrap variant="h5">
+                                {/* {project.name} */}
+                                Garden West karachi
+                              </Typography>
+                          </TableCell>
+
+                          <TableCell>
+                          <Typography noWrap variant="h5">
+                                {/* {project.name} */}
+                                10-02-25
+                              </Typography>
+                          </TableCell>
+
+              
+                          <TableCell align="center">
+                            <Typography noWrap>
+                              <Tooltip title={t('View')} arrow>
+                                <IconButton color="primary">
+                                  <LaunchTwoToneIcon fontSize="small" />
+                                </IconButton>
+                              </Tooltip>
+                              <Tooltip title={t('Delete')} arrow>
+                                <IconButton
+                                  onClick={handleConfirmDelete}
+                                  color="primary"
+                                >
+                                  <DeleteTwoToneIcon fontSize="small" />
+                                </IconButton>
+                              </Tooltip>
+                            </Typography>
+                          </TableCell>
+
+                        </TableRow>
+
+                      {/* ); */}
+                    {/* })} */}
                   </TableBody>
                 </Table>
               </TableContainer>
               <Box p={2}>
                 <TablePagination
                   component="div"
-                  count={filteredProjects.length}
+                  // count={filteredProjects.length}
                   onPageChange={handlePageChange}
                   onRowsPerPageChange={handleLimitChange}
                   page={page}
@@ -655,10 +747,11 @@ const Results: FC<ResultsProps> = ({ projects }) => {
                 />
               </Box>
             </>
-          )}
+          {/* )} */}
         </Card>
       )}
-      {toggleView === 'grid_view' && (
+
+      {/* {toggleView === 'grid_view' && (
         <>
           {paginatedProjects.length !== 0 && (
             <Card
@@ -945,7 +1038,7 @@ const Results: FC<ResultsProps> = ({ projects }) => {
             )}
           </Typography>
         </Card>
-      )}
+      )} */}
 
       <DialogWrapper
         open={openConfirmDelete}
@@ -1021,11 +1114,13 @@ const Results: FC<ResultsProps> = ({ projects }) => {
 };
 
 Results.propTypes = {
-  projects: PropTypes.array.isRequired
+  // projects: PropTypes.array.isRequired
+  patient: PropTypes.array.isRequired
 };
 
 Results.defaultProps = {
-  projects: [1,2]
+  // projects: []
+  patient:[]
 };
 
 export default Results;
