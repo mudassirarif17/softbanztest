@@ -28,6 +28,9 @@ import {
   useTheme,
   Tabs,
   Tab,
+  AppBar,
+  Toolbar,
+
 } from '@mui/material';
 import DatePicker from '@mui/lab/DatePicker';
 import { useDropzone } from 'react-dropzone';
@@ -121,7 +124,7 @@ const projectTags = [
 ];
 
 
-function PageHeader(props : any) {
+function PageHeader(props: any) {
   const { t }: { t: any } = useTranslation();
   const [open, setOpen] = useState<boolean>(false);
   const { enqueueSnackbar } = useSnackbar();
@@ -174,6 +177,7 @@ function PageHeader(props : any) {
   ));
 
   const [value, setValue] = useState<Date | null>(null);
+  const [tabs, setTabs] = useState<number>(1);
 
   const handleCreateProjectOpen = () => {
     setOpen(true);
@@ -196,9 +200,20 @@ function PageHeader(props : any) {
     setOpen(false);
   };
 
+  const tabLabels = ["Patient", "Shared Patient"];
+
   return (
     <>
-      
+
+      <Box sx={{ width: '100%' }}>
+        <Box sx={{ marginBottom: '10px' }}>
+          <Tabs value={tabs} onChange={(e, val) => setTabs(val)}>
+            {tabLabels.map((label, index) => (
+              <Tab key={index} label={label} />
+            ))}
+          </Tabs>
+        </Box>
+      </Box>
 
       <Grid container justifyContent="space-between" alignItems="center">
         <Grid item>
@@ -752,7 +767,7 @@ function PageHeader(props : any) {
                   <Grid
                     sx={{
                       mb: `${theme.spacing(3)}`,
-                      marginLeft : "30px"
+                      marginLeft: "30px"
                     }}
                     item
                     xs={12}
@@ -793,6 +808,7 @@ function PageHeader(props : any) {
           )}
         </Formik>
       </Dialog>
+      
     </>
   );
 }
