@@ -26,9 +26,9 @@ const menuItems: MenuItems[] = [
     heading: '',
     items: [
       {
-        name: 'Patients',
+        name: 'Home',
         icon: BackupTableTwoToneIcon,
-        badge: 'v3',
+        // badge: 'v3',
         link: '/',
         // items: [
         //   {
@@ -62,10 +62,10 @@ const menuItems: MenuItems[] = [
         //   }
         // ]
       },
-      {
-        name: 'Shared Patients',
-        icon: SmartToyTwoToneIcon,
-        link: '/shared_patient',
+      // {
+        // name: 'About',
+        // icon: SmartToyTwoToneIcon,
+        // link: '',
         // items: [
         //   {
         //     name: 'Reports',
@@ -102,7 +102,7 @@ const menuItems: MenuItems[] = [
         //     link: 'dashboards/commerce'
         //   }
         // ]
-      },
+      // },
       // {
       //   name: 'Data Display',
       //   icon: HealthAndSafetyTwoToneIcon,

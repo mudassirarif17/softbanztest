@@ -10,7 +10,6 @@ const App = () => {
     <div>
       <ThemeProvider>
       <Routes>
-        {/* <Route path="/" element={<Home />}/> */}
         <Route path="/" element={<PatientList title="Patients" desc="These are your Patients"/>}/>
         <Route path="/shared_patient" element={<PatientList title="Shared Patients" desc="These are your Patients"/>}/>
         <Route path="/login" element={<Login />}/>

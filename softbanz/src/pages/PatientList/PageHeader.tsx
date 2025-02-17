@@ -39,6 +39,7 @@ import AddTwoToneIcon from '@mui/icons-material/AddTwoTone';
 import CloudUploadTwoToneIcon from '@mui/icons-material/CloudUploadTwoTone';
 import CloseTwoToneIcon from '@mui/icons-material/CloseTwoTone';
 import CheckTwoToneIcon from '@mui/icons-material/CheckTwoTone';
+import { Link } from 'react-router-dom';
 
 const BoxUploadWrapper = styled(Box)(
   ({ theme }) => `
@@ -201,6 +202,8 @@ function PageHeader(props: any) {
   };
 
   const tabLabels = ["Patient", "Shared Patient"];
+  const tabRoutes = ['/', '/shared_patient']; 
+
 
   return (
     <>
@@ -209,7 +212,12 @@ function PageHeader(props: any) {
         <Box sx={{ marginBottom: '10px' }}>
           <Tabs value={tabs} onChange={(e, val) => setTabs(val)}>
             {tabLabels.map((label, index) => (
-              <Tab key={index} label={label} />
+              <Tab  
+              key={index}
+              label={label}
+              component={Link}
+              to={tabRoutes[index]}
+              />
             ))}
           </Tabs>
         </Box>
