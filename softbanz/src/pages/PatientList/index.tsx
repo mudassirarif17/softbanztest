@@ -14,6 +14,7 @@ import type { Patient } from '../../models/patients';
 
 import Results from './Results';
 
+
 function ManagementProjects(props:any) {
   const isMountedRef = useRefMounted();
   const [patients, setPatients] = useState<Patient[]>([]);
@@ -42,7 +43,7 @@ function ManagementProjects(props:any) {
         ])
       }
     } catch (err) {
-      console.error(err);
+      // console.error(err);
     }
   }, [isMountedRef]);
 

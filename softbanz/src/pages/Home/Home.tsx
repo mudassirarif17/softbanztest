@@ -65,6 +65,8 @@ const CardWrapper = styled(Card)(
 `
 );
 
+
+
 const SidebarWrapper = styled(Box)(
   ({ theme }) => `
         width: ${theme.sidebar.width};
@@ -102,10 +104,7 @@ const Home: FC<TopNavigationLayoutProps> = (props) => {
 
           
             <CardWrapper>
-              
-                {/* <PatientList /> */}
                 {props.children}
-
             </CardWrapper> 
          
 

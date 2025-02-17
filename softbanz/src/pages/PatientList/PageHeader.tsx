@@ -398,6 +398,7 @@ function PageHeader(props : any) {
                       error={Boolean(touched.title && errors.title)}
                       fullWidth
                       helperText={touched.title && errors.title}
+                      type='date'
                       name="dob"
                       placeholder={t('Patient Date Of Birth')}
                       onBlur={handleBlur}
@@ -602,6 +603,7 @@ function PageHeader(props : any) {
                     <TextField
                       error={Boolean(touched.title && errors.title)}
                       fullWidth
+                      type='date'
                       helperText={touched.title && errors.title}
                       name="address"
                       placeholder={t('Patient last visit date')}

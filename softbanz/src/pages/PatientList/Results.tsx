@@ -532,18 +532,6 @@ const Results: FC<ResultsProps> = ({ patient }) => {
                           // selected={isProjectSelected}
                         >
 
-                          {/* <TableCell padding="checkbox">
-
-                            <Checkbox
-                              checked={isProjectSelected}
-                              onChange={(event) =>
-                                handleSelectOneProject(event, project.id)
-                              }
-                              value={isProjectSelected}
-                            />
-
-                          </TableCell> */}
-
                           <TableCell>
                             <Typography noWrap variant="h5">
                               {/* {project.name} */}
@@ -633,18 +621,6 @@ const Results: FC<ResultsProps> = ({ patient }) => {
                           // key={project.id}
                           // selected={isProjectSelected}
                         >
-
-                          {/* <TableCell padding="checkbox">
-
-                            <Checkbox
-                              checked={isProjectSelected}
-                              onChange={(event) =>
-                                handleSelectOneProject(event, project.id)
-                              }
-                              value={isProjectSelected}
-                            />
-
-                          </TableCell> */}
 
                           <TableCell>
                             <Typography noWrap variant="h5">
@@ -1067,7 +1043,7 @@ const Results: FC<ResultsProps> = ({ patient }) => {
             }}
             variant="h3"
           >
-            {t('Do you really want to delete this project')}?
+            {t('Do you really want to delete this Patient')}?
           </Typography>
 
           <Typography

@@ -104,7 +104,7 @@ function SidebarTopSection() {
   return (
     <>
       <UserBoxButton fullWidth color="secondary" ref={ref} onClick={handleOpen}>
-        <Avatar variant="rounded" alt={user.name} src={user.avatar} />
+        {/* <Avatar variant="rounded" alt={user.name} src={user.avatar} /> */}
         <Box
           display="flex"
           flex={1}
@@ -112,9 +112,9 @@ function SidebarTopSection() {
           justifyContent="space-between"
         >
           <UserBoxText>
-            <UserBoxLabel variant="body1">{user.name}</UserBoxLabel>
+            {/* <UserBoxLabel variant="body1">{user.name}</UserBoxLabel> */}
             <UserBoxDescription variant="body2">
-              {user.jobtitle}
+              {/* {user.jobtitle} */}
             </UserBoxDescription>
           </UserBoxText>
           <UnfoldMoreTwoToneIcon
@@ -145,13 +145,13 @@ function SidebarTopSection() {
           }}
           display="flex"
         >
-          <Avatar variant="rounded" alt={user.name} src={user.avatar} />
+          {/* <Avatar variant="rounded" alt={user.name} src={user.avatar} /> */}
           <UserBoxText>
             <UserBoxLabel className="popoverTypo" variant="body1">
-              {user.name}
+              {/* {user.name} */}
             </UserBoxLabel>
             <UserBoxDescription className="popoverTypo" variant="body2">
-              {user.jobtitle}
+              {/* {user.jobtitle} */}
             </UserBoxDescription>
           </UserBoxText>
         </MenuUserBox>

@@ -93,7 +93,10 @@ const IconButtonPrimary = styled(IconButton)(
 );
 
 function TopBar() {
-  const { sidebarToggle, toggleSidebar } = useContext(SidebarContext);
+
+  
+
+  const { sidebarToggle, toggleSidebar , mySidebarToggle } = useContext(SidebarContext);
   const theme = useTheme();
 
   return (
@@ -153,11 +156,18 @@ function TopBar() {
                 display: { md: 'none', xs: 'inline-flex' }
               }}
             >
+
               <Tooltip arrow title="Toggle Menu">
-                <IconButtonPrimary color="primary" onClick={toggleSidebar}>
+                <IconButtonPrimary color="primary" onClick={mySidebarToggle}>
                   {!sidebarToggle ? <MenuTwoToneIcon /> : <CloseTwoToneIcon />}
                 </IconButtonPrimary>
               </Tooltip>
+
+              {/* <Tooltip arrow title="Toggle Menu">
+                <IconButtonPrimary color="primary" onClick={toggleSidebar}>
+                  {!sidebarToggle ? <MenuTwoToneIcon /> : <CloseTwoToneIcon />}
+                </IconButtonPrimary>
+              </Tooltip> */}
               
             </Box>
           </Box>
