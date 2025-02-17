@@ -3,7 +3,7 @@ import * as Yup from 'yup';
 import { Formik } from 'formik';
 import { useTranslation } from 'react-i18next';
 import wait from '../../../src/utils/wait';
-
+import { useLocation } from 'react-router-dom';
 
 import {
   styled,
@@ -12,7 +12,6 @@ import {
   DialogTitle,
   Divider,
   Alert,
-  Chip,
   DialogContent,
   Box,
   Zoom,
@@ -23,16 +22,13 @@ import {
   TextField,
   CircularProgress,
   Avatar,
-  Autocomplete,
   Button,
   useTheme,
   Tabs,
-  Tab,
-  AppBar,
-  Toolbar,
-
+  Tab
 } from '@mui/material';
-import DatePicker from '@mui/lab/DatePicker';
+
+// import DatePicker from '@mui/lab/DatePicker';
 import { useDropzone } from 'react-dropzone';
 import { useSnackbar } from 'notistack';
 import AddTwoToneIcon from '@mui/icons-material/AddTwoTone';
@@ -61,36 +57,36 @@ const BoxUploadWrapper = styled(Box)(
 `
 );
 
-const EditorWrapper = styled(Box)(
-  ({ theme }) => `
+// const EditorWrapper = styled(Box)(
+//   ({ theme }) => `
 
-    .ql-editor {
-      min-height: 100px;
-    }
+//     .ql-editor {
+//       min-height: 100px;
+//     }
 
-    .ql-toolbar.ql-snow {
-      border-top-left-radius: ${theme.general.borderRadius};
-      border-top-right-radius: ${theme.general.borderRadius};
-    }
+//     .ql-toolbar.ql-snow {
+//       border-top-left-radius: ${theme.general.borderRadius};
+//       border-top-right-radius: ${theme.general.borderRadius};
+//     }
 
-    .ql-toolbar.ql-snow,
-    .ql-container.ql-snow {
-      border-color: ${theme.colors.alpha.black[30]};
-    }
+//     .ql-toolbar.ql-snow,
+//     .ql-container.ql-snow {
+//       border-color: ${theme.colors.alpha.black[30]};
+//     }
 
-    .ql-container.ql-snow {
-      border-bottom-left-radius: ${theme.general.borderRadius};
-      border-bottom-right-radius: ${theme.general.borderRadius};
-    }
+//     .ql-container.ql-snow {
+//       border-bottom-left-radius: ${theme.general.borderRadius};
+//       border-bottom-right-radius: ${theme.general.borderRadius};
+//     }
 
-    &:hover {
-      .ql-toolbar.ql-snow,
-      .ql-container.ql-snow {
-        border-color: ${theme.colors.alpha.black[50]};
-      }
-    }
-`
-);
+//     &:hover {
+//       .ql-toolbar.ql-snow,
+//       .ql-container.ql-snow {
+//         border-color: ${theme.colors.alpha.black[50]};
+//       }
+//     }
+// `
+// );
 
 const AvatarWrapper = styled(Avatar)(
   ({ theme }) => `
@@ -117,12 +113,12 @@ const AvatarDanger = styled(Avatar)(
 `
 );
 
-const projectTags = [
-  { title: 'Development' },
-  { title: 'Design Project' },
-  { title: 'Marketing Research' },
-  { title: 'Software' }
-];
+// const projectTags = [
+//   { title: 'Development' },
+//   { title: 'Design Project' },
+//   { title: 'Marketing Research' },
+//   { title: 'Software' }
+// ];
 
 
 function PageHeader(props: any) {
@@ -132,28 +128,28 @@ function PageHeader(props: any) {
   const theme = useTheme();
 
 
-  const members = [
-    {
-      avatar: '/static/images/avatars/1.jpg',
-      name: 'Maren Lipshutz'
-    },
-    {
-      avatar: '/static/images/avatars/2.jpg',
-      name: 'Zain Vetrovs'
-    },
-    {
-      avatar: '/static/images/avatars/3.jpg',
-      name: 'Hanna Siphron'
-    },
-    {
-      avatar: '/static/images/avatars/4.jpg',
-      name: 'Cristofer Aminoff'
-    },
-    {
-      avatar: '/static/images/avatars/5.jpg',
-      name: 'Maria Calzoni'
-    }
-  ];
+  // const members = [
+  //   {
+  //     avatar: '/static/images/avatars/1.jpg',
+  //     name: 'Maren Lipshutz'
+  //   },
+  //   {
+  //     avatar: '/static/images/avatars/2.jpg',
+  //     name: 'Zain Vetrovs'
+  //   },
+  //   {
+  //     avatar: '/static/images/avatars/3.jpg',
+  //     name: 'Hanna Siphron'
+  //   },
+  //   {
+  //     avatar: '/static/images/avatars/4.jpg',
+  //     name: 'Cristofer Aminoff'
+  //   },
+  //   {
+  //     avatar: '/static/images/avatars/5.jpg',
+  //     name: 'Maria Calzoni'
+  //   }
+  // ];
 
   const {
     acceptedFiles,
@@ -177,8 +173,9 @@ function PageHeader(props: any) {
     </ListItem>
   ));
 
-  const [value, setValue] = useState<Date | null>(null);
-  const [tabs, setTabs] = useState<number>(1);
+  // const [value, setValue] = useState<Date | null>(null);
+
+  const [tabs, setTabs] = useState<number>(0);
 
   const handleCreateProjectOpen = () => {
     setOpen(true);
@@ -203,7 +200,9 @@ function PageHeader(props: any) {
 
   const tabLabels = ["Patient", "Shared Patient"];
   const tabRoutes = ['/', '/shared_patient']; 
+  const location = useLocation();
 
+  const shouldShowButton = location.pathname !== '/shared_patient';
 
   return (
     <>
@@ -233,16 +232,21 @@ function PageHeader(props: any) {
           </Typography>
         </Grid>
         <Grid item>
-          <Button
-            sx={{
-              mt: { xs: 2, sm: 0 }
-            }}
-            onClick={handleCreateProjectOpen}
-            variant="contained"
-            startIcon={<AddTwoToneIcon fontSize="small" />}
-          >
-            {t('Add new patient')}
-          </Button>
+        {
+  shouldShowButton && (
+    <Button
+      sx={{
+        mt: { xs: 2, sm: 0 }
+      }}
+      onClick={handleCreateProjectOpen}
+      variant="contained"
+      startIcon={<AddTwoToneIcon fontSize="small" />}
+    >
+      {t('Add new patient')}
+    </Button>
+  )
+}
+          
         </Grid>
       </Grid>
 

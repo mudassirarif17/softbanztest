@@ -57,6 +57,7 @@ function ManagementProjects(props:any) {
       {/* <Helmet>
         <title>Projects - Management</title>
       </Helmet> */}
+      
       <PageTitleWrapper>
         <PageHeader title={props.title} desc={props.desc}/>
       </PageTitleWrapper>
