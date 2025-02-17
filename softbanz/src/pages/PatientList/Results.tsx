@@ -10,19 +10,14 @@ import {
 import PropTypes from 'prop-types';
 import {
   Avatar,
-  Autocomplete,
   Box,
   Card,
-  Checkbox,
   Grid,
   Slide,
   Divider,
   Tooltip,
   IconButton,
   InputAdornment,
-  MenuItem,
-  Link,
-  AvatarGroup,
   Table,
   TableBody,
   TableCell,
@@ -30,18 +25,10 @@ import {
   TablePagination,
   TableContainer,
   TableRow,
-  ToggleButton,
-  ToggleButtonGroup,
-  LinearProgress,
   TextField,
   Button,
   Typography,
   Dialog,
-  FormControl,
-  Select,
-  InputLabel,
-  Zoom,
-  CardMedia,
   lighten,
   styled
 } from '@mui/material';
@@ -49,17 +36,16 @@ import { TransitionProps } from '@mui/material/transitions';
 import CloseIcon from '@mui/icons-material/Close';
 import type { Project, ProjectStatus } from '../../models/project';
 import { useTranslation } from 'react-i18next';
-import clsx from 'clsx';
 import LaunchTwoToneIcon from '@mui/icons-material/LaunchTwoTone';
 import Label from '../../components/Label';
 import BulkActions from './BulkActions';
 import SearchTwoToneIcon from '@mui/icons-material/SearchTwoTone';
-import GridViewTwoToneIcon from '@mui/icons-material/GridViewTwoTone';
-import TableRowsTwoToneIcon from '@mui/icons-material/TableRowsTwoTone';
+// import GridViewTwoToneIcon from '@mui/icons-material/GridViewTwoTone';
+// import TableRowsTwoToneIcon from '@mui/icons-material/TableRowsTwoTone';
 import DeleteTwoToneIcon from '@mui/icons-material/DeleteTwoTone';
 // import { useSnackbar } from 'notistack';
-import { formatDistance, format } from 'date-fns';
-import Text from '../../components/Text';
+// import { formatDistance, format } from 'date-fns';
+// import Text from '../../components/Text';
 
 const DialogWrapper = styled(Dialog)(
   () => `
@@ -82,29 +68,29 @@ const AvatarError = styled(Avatar)(
 `
 );
 
-const CardWrapper = styled(Card)(
-  ({ theme }) => `
+// const CardWrapper = styled(Card)(
+//   ({ theme }) => `
 
-  position: relative;
-  overflow: visible;
+//   position: relative;
+//   overflow: visible;
 
-  &::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    border-radius: inherit;
-    z-index: 1;
-    transition: ${theme.transitions.create(['box-shadow'])};
-  }
+//   &::after {
+//     content: '';
+//     position: absolute;
+//     width: 100%;
+//     height: 100%;
+//     top: 0;
+//     left: 0;
+//     border-radius: inherit;
+//     z-index: 1;
+//     transition: ${theme.transitions.create(['box-shadow'])};
+//   }
       
-    &.Mui-selected::after {
-      box-shadow: 0 0 0 3px ${theme.colors.primary.main};
-    }
-  `
-);
+//     &.Mui-selected::after {
+//       box-shadow: 0 0 0 3px ${theme.colors.primary.main};
+//     }
+//   `
+// );
 
 const ButtonError = styled(Button)(
   ({ theme }) => `
@@ -117,17 +103,17 @@ const ButtonError = styled(Button)(
     `
 );
 
-const IconButtonError = styled(IconButton)(
-  ({ theme }) => `
-     background: ${theme.colors.error.lighter};
-     color: ${theme.colors.error.main};
-     padding: ${theme.spacing(0.75)};
+// const IconButtonError = styled(IconButton)(
+//   ({ theme }) => `
+//      background: ${theme.colors.error.lighter};
+//      color: ${theme.colors.error.main};
+//      padding: ${theme.spacing(0.75)};
 
-     &:hover {
-      background: ${lighten(theme.colors.error.lighter, 0.4)};
-     }
-`
-);
+//      &:hover {
+//       background: ${lighten(theme.colors.error.lighter, 0.4)};
+//      }
+// `
+// );
 
 interface ResultsProps {
   projects: Project[];
@@ -144,26 +130,26 @@ const Transition = forwardRef(function Transition(
   return <Slide direction="down" ref={ref} {...props} />;
 });
 
-const getProjectStatusLabel = (projectStatus: ProjectStatus): JSX.Element => {
-  const map = {
-    not_started: {
-      text: 'Not started',
-      color: 'error'
-    },
-    in_progress: {
-      text: 'In progress',
-      color: 'info'
-    },
-    completed: {
-      text: 'Completed',
-      color: 'success'
-    }
-  };
+// const getProjectStatusLabel = (projectStatus: ProjectStatus): JSX.Element => {
+//   const map = {
+//     not_started: {
+//       text: 'Not started',
+//       color: 'error'
+//     },
+//     in_progress: {
+//       text: 'In progress',
+//       color: 'info'
+//     },
+//     completed: {
+//       text: 'Completed',
+//       color: 'success'
+//     }
+//   };
 
-  const { text, color }: any = map[projectStatus];
+//   const { text, color }: any = map[projectStatus];
 
-  return <Label color={color}>{text}</Label>;
-};
+//   return <Label color={color}>{text}</Label>;
+// };
 
 const applyFilters = (
   projects: Project[],
@@ -204,13 +190,13 @@ const applyFilters = (
   });
 };
 
-const applyPagination = (
-  projects: Project[],
-  page: number,
-  limit: number
-): Project[] => {
-  return projects.slice(page * limit, page * limit + limit);
-};
+// const applyPagination = (
+//   projects: Project[],
+//   page: number,
+//   limit: number
+// ): Project[] => {
+//   return projects.slice(page * limit, page * limit + limit);
+// };
 
 const Results: FC<ResultsProps> = ({ patient }) => {
   const [selectedItems, setSelectedProjects] = useState<string[]>([]);
@@ -224,70 +210,70 @@ const Results: FC<ResultsProps> = ({ patient }) => {
     status: null
   });
 
-  const projectTags = [
-    { title: 'Development' },
-    { title: 'Design Project' },
-    { title: 'Marketing Research' },
-    { title: 'Software' }
-  ];
+  // const projectTags = [
+  //   { title: 'Development' },
+  //   { title: 'Design Project' },
+  //   { title: 'Marketing Research' },
+  //   { title: 'Software' }
+  // ];
 
-  const statusOptions = [
-    {
-      id: 'all',
-      name: 'All'
-    },
-    {
-      id: 'not_started',
-      name: t('Not started')
-    },
-    {
-      id: 'completed',
-      name: t('Completed')
-    },
-    {
-      id: 'in_progress',
-      name: t('In Progress')
-    }
-  ];
+  // const statusOptions = [
+  //   {
+  //     id: 'all',
+  //     name: 'All'
+  //   },
+  //   {
+  //     id: 'not_started',
+  //     name: t('Not started')
+  //   },
+  //   {
+  //     id: 'completed',
+  //     name: t('Completed')
+  //   },
+  //   {
+  //     id: 'in_progress',
+  //     name: t('In Progress')
+  //   }
+  // ];
 
   const handleQueryChange = (event: ChangeEvent<HTMLInputElement>): void => {
     event.persist();
     setQuery(event.target.value);
   };
 
-  const handleStatusChange = (e: ChangeEvent<HTMLInputElement>): void => {
-    let value = null;
+  // const handleStatusChange = (e: ChangeEvent<HTMLInputElement>): void => {
+  //   let value = null;
 
-    if (e.target.value !== 'all') {
-      value = e.target.value;
-    }
+  //   if (e.target.value !== 'all') {
+  //     value = e.target.value;
+  //   }
 
-    setFilters((prevFilters) => ({
-      ...prevFilters,
-      status: value
-    }));
-  };
+  //   setFilters((prevFilters) => ({
+  //     ...prevFilters,
+  //     status: value
+  //   }));
+  // };
 
-  const handleSelectAllProjects = (
-    event: ChangeEvent<HTMLInputElement>
-  ): void => {
-    setSelectedProjects(
-      event.target.checked ? projects.map((project) => project.id) : []
-    );
-  };
+  // const handleSelectAllProjects = (
+  //   event: ChangeEvent<HTMLInputElement>
+  // ): void => {
+  //   setSelectedProjects(
+  //     event.target.checked ? projects.map((project) => project.id) : []
+  //   );
+  // };
 
-  const handleSelectOneProject = (
-    _event: ChangeEvent<HTMLInputElement>,
-    projectId: string
-  ): void => {
-    if (!selectedItems.includes(projectId)) {
-      setSelectedProjects((prevSelected) => [...prevSelected, projectId]);
-    } else {
-      setSelectedProjects((prevSelected) =>
-        prevSelected.filter((id) => id !== projectId)
-      );
-    }
-  };
+  // const handleSelectOneProject = (
+  //   _event: ChangeEvent<HTMLInputElement>,
+  //   projectId: string
+  // ): void => {
+  //   if (!selectedItems.includes(projectId)) {
+  //     setSelectedProjects((prevSelected) => [...prevSelected, projectId]);
+  //   } else {
+  //     setSelectedProjects((prevSelected) =>
+  //       prevSelected.filter((id) => id !== projectId)
+  //     );
+  //   }
+  // };
 
   const handlePageChange = (_event: any, newPage: number): void => {
     setPage(newPage);
@@ -306,12 +292,12 @@ const Results: FC<ResultsProps> = ({ patient }) => {
 
   const [toggleView, setToggleView] = useState<string | null>('table_view');
 
-  const handleViewOrientation = (
-    _event: MouseEvent<HTMLElement>,
-    newValue: string | null
-  ) => {
-    setToggleView(newValue);
-  };
+  // const handleViewOrientation = (
+  //   _event: MouseEvent<HTMLElement>,
+  //   newValue: string | null
+  // ) => {
+  //   setToggleView(newValue);
+  // };
 
   const [openConfirmDelete, setOpenConfirmDelete] = useState(false);
 
@@ -1095,7 +1081,6 @@ Results.propTypes = {
 };
 
 Results.defaultProps = {
-  // projects: []
   patient:[]
 };
 

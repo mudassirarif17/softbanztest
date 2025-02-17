@@ -104,7 +104,7 @@ function SidebarTopSection() {
   return (
     <>
       <UserBoxButton fullWidth color="secondary" ref={ref} onClick={handleOpen}>
-        {/* <Avatar variant="rounded" alt={user.name} src={user.avatar} /> */}
+        <Avatar variant="rounded" alt={""} src={""} />
         <Box
           display="flex"
           flex={1}
@@ -112,9 +112,9 @@ function SidebarTopSection() {
           justifyContent="space-between"
         >
           <UserBoxText>
-            {/* <UserBoxLabel variant="body1">{user.name}</UserBoxLabel> */}
+            <UserBoxLabel variant="body1">Mudassir</UserBoxLabel>
             <UserBoxDescription variant="body2">
-              {/* {user.jobtitle} */}
+              Lead Developer
             </UserBoxDescription>
           </UserBoxText>
           <UnfoldMoreTwoToneIcon
@@ -139,22 +139,24 @@ function SidebarTopSection() {
           horizontal: 'center'
         }}
       >
+        
         <MenuUserBox
           sx={{
             minWidth: 210
           }}
           display="flex"
         >
-          {/* <Avatar variant="rounded" alt={user.name} src={user.avatar} /> */}
+          <Avatar variant="rounded" alt={""} src={""} />
           <UserBoxText>
             <UserBoxLabel className="popoverTypo" variant="body1">
-              {/* {user.name} */}
+              Mudassir Arif
             </UserBoxLabel>
             <UserBoxDescription className="popoverTypo" variant="body2">
-              {/* {user.jobtitle} */}
+              Lead Developer
             </UserBoxDescription>
           </UserBoxText>
         </MenuUserBox>
+
         <Divider
           sx={{
             mb: 0
@@ -166,6 +168,7 @@ function SidebarTopSection() {
           }}
           component="nav"
         >
+          
           <ListItem
             onClick={() => {
               handleClose();
@@ -203,6 +206,7 @@ function SidebarTopSection() {
             <AccountTreeTwoToneIcon fontSize="small" />
             <ListItemText primary={t('Projects')} />
           </ListItem>
+
         </List>
         <Divider />
         <Box m={1}>

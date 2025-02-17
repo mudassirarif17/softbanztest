@@ -7,14 +7,18 @@ body {
   overflow-x: hidden;
 }
 
+
+
+
+
 /* .css-1rhrdda {
   margin-left: 72px;
   margin-right: 72px;
-}
+} */
 
 @media screen and (max-width : 600px) {
     .css-1rhrdda {
-        margin-left: 72px !important;
-        margin-right: 72px;
-      }
-} */
+      margin-left: 0px;
+      margin-right: 0px;
+    }
+} 

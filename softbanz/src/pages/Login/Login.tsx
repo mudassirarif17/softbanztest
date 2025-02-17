@@ -1,57 +1,55 @@
-import { Link as RouterLink } from "react-router-dom";
 import {
   Box,
   Card,
-  Link,
-  Tooltip,
+  // Tooltip,
   Typography,
   Container,
   Alert,
   styled,
   Button,
-  Checkbox,
-  FormControlLabel,
+  // Checkbox,
+  // FormControlLabel,
   TextField,
 } from "@mui/material";
 
 import { useTranslation } from "react-i18next";
 import Logo from "../../components/LogoSign";
-import SuspenseLoader from "../../components/SuspenseLoader";
+// import SuspenseLoader from "../../components/SuspenseLoader";
 
-const icons = {
-  Auth0: "/static/images/logo/auth0.svg",
-  FirebaseAuth: "/static/images/logo/firebase.svg",
-  JWT: "/static/images/logo/jwt.svg",
-  Amplify: "/static/images/logo/amplify.svg",
-};
+// const icons = {
+//   Auth0: "/static/images/logo/auth0.svg",
+//   FirebaseAuth: "/static/images/logo/firebase.svg",
+//   JWT: "/static/images/logo/jwt.svg",
+//   Amplify: "/static/images/logo/amplify.svg",
+// };
 
-const CardImg = styled(Card)(
-  ({ theme }) => `
-    width: 90px;
-    height: 80px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    background: ${theme.colors.alpha.white[100]};
-    margin: 0 ${theme.spacing(1)};
-    border: 1px solid ${theme.colors.alpha.black[10]};
-    transition: ${theme.transitions.create(["all"])};
-    border-color: ${theme.colors.primary.main};
-    &:hover {
+// const CardImg = styled(Card)(
+//   ({ theme }) => `
+//     width: 90px;
+//     height: 80px;
+//     display: inline-flex;
+//     align-items: center;
+//     justify-content: center;
+//     position: relative;
+//     background: ${theme.colors.alpha.white[100]};
+//     margin: 0 ${theme.spacing(1)};
+//     border: 1px solid ${theme.colors.alpha.black[10]};
+//     transition: ${theme.transitions.create(["all"])};
+//     border-color: ${theme.colors.primary.main};
+//     &:hover {
       
-    }
-`
-);
+//     }
+// `
+// );
 
-const BottomWrapper = styled(Box)(
-  ({ theme }) => `
-    padding: ${theme.spacing(3)};
-    display: flex;
-    align-items: center;
-    justify-content: center;
-`
-);
+// const BottomWrapper = styled(Box)(
+//   ({ theme }) => `
+//     padding: ${theme.spacing(3)};
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+// `
+// );
 
 const MainContent = styled(Box)(
   () => `
@@ -70,7 +68,6 @@ const TopWrapper = styled(Box)`
 `;
 
 function Login() {
-  // const { method } = useAuth() as any;
   const { t }: { t: any } = useTranslation();
 
   return (

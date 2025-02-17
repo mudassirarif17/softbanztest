@@ -2,14 +2,14 @@ import { useState, useEffect, useCallback } from 'react';
 import axios from '../../utils/axios';
 import Home from '../Home/Home';
 
-import { Helmet } from 'react-helmet-async';
+// import { Helmet } from 'react-helmet-async';
 import PageHeader from './PageHeader';
 import Footer from '../../components/Footer';
 import PageTitleWrapper from '../../components/PageTitleWrapper';
 
 import { Grid } from '@mui/material';
 import useRefMounted from '../../hooks/useRefMounted';
-import type { Project } from '../../models/project';
+// import type { Project } from '../../models/project';
 import type { Patient } from '../../models/patients';
 
 import Results from './Results';

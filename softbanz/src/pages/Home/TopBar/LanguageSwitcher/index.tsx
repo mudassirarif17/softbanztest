@@ -3,12 +3,12 @@ import { useRef, useState } from 'react';
 import {
   IconButton,
   Box,
-  List,
-  ListItem,
+  // List,
+  // ListItem,
   Divider,
   alpha,
   Typography,
-  ListItemText,
+  // ListItemText,
   Popover,
   Tooltip,
   styled
@@ -74,9 +74,10 @@ function LanguageSwitcher() {
   const { t }: { t: any } = useTranslation();
   const getLanguage = i18n.language;
 
-  const switchLanguage = ({ lng }: { lng: any }) => {
-    internationalization.changeLanguage(lng);
-  };
+  // const switchLanguage = ({ lng }: { lng: any }) => {
+    // internationalization.changeLanguage(lng);
+  // };
+
   const ref = useRef<any>(null);
   const [isOpen, setOpen] = useState<boolean>(false);
 
@@ -124,7 +125,7 @@ function LanguageSwitcher() {
           <SectionHeading variant="body2" color="text.primary">
             {t('Language Switcher')}
           </SectionHeading>
-          <List
+          {/* <List
             sx={{
               p: 2,
               svg: {
@@ -232,7 +233,7 @@ function LanguageSwitcher() {
                 primary="Arabic"
               />
             </ListItem>
-          </List>
+          </List> */}
           <Divider />
           <Text color="warning">
             <Box

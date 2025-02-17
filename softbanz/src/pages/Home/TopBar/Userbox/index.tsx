@@ -104,7 +104,7 @@ function Userbox() {
 
   const navigate = useNavigate();
   const location = useLocation();
-  const { user, logout } = useAuth();
+  // const { user, logout } = useAuth();
 
   const ref = useRef<any>(null);
   const [isOpen, setOpen] = useState<boolean>(false);
@@ -120,7 +120,7 @@ function Userbox() {
   const handleLogout = async (): Promise<void> => {
     try {
       handleClose();
-      await logout();
+      // await logout();
       navigate('/');
     } catch (err) {
       console.error(err);
