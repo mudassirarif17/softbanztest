@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import axios from '../../utils/axios';
+import Home from '../Home/Home';
 
 import { Helmet } from 'react-helmet-async';
 import PageHeader from './PageHeader';
@@ -13,7 +14,7 @@ import type { Patient } from '../../models/patients';
 
 import Results from './Results';
 
-function ManagementProjects() {
+function ManagementProjects(props:any) {
   const isMountedRef = useRefMounted();
   const [patients, setPatients] = useState<Patient[]>([]);
 
@@ -51,12 +52,12 @@ function ManagementProjects() {
   }, [getPatients]);
 
   return (
-    <>
+    <Home>
       {/* <Helmet>
         <title>Projects - Management</title>
       </Helmet> */}
       <PageTitleWrapper>
-        <PageHeader />
+        <PageHeader title={props.title} desc={props.desc}/>
       </PageTitleWrapper>
 
       <Grid
@@ -74,7 +75,7 @@ function ManagementProjects() {
         </Grid>
       </Grid>
       <Footer />
-    </>
+    </Home>
   );
 }
 

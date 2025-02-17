@@ -158,6 +158,7 @@ function TopBar() {
                   {!sidebarToggle ? <MenuTwoToneIcon /> : <CloseTwoToneIcon />}
                 </IconButtonPrimary>
               </Tooltip>
+              
             </Box>
           </Box>
         </Box>

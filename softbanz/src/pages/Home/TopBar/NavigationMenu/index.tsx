@@ -1,8 +1,8 @@
-import { Box, List, styled } from '@mui/material';
-import { useLocation, matchPath } from 'react-router-dom';
-import NavigationMenuItem from './item';
-import menuItems, { MenuItem } from './items';
-import { v4 as uuidv4 } from 'uuid';
+import { Box, List, styled } from "@mui/material";
+import { useLocation, matchPath } from "react-router-dom";
+import NavigationMenuItem from "./item";
+import menuItems, { MenuItem } from "./items";
+import { v4 as uuidv4 } from "uuid";
 
 const MenuWrapper = styled(Box)(
   () => `
@@ -54,7 +54,7 @@ const SubMenuWrapper = styled(Box)(
           color: ${theme.colors.alpha.trueWhite[100]};
 
           .name-wrapper {
-            transition: ${theme.transitions.create(['color'])};
+            transition: ${theme.transitions.create(["color"])};
           }
 
           .MuiBadge-root {
@@ -72,7 +72,7 @@ const SubMenuWrapper = styled(Box)(
           }
   
           .MuiSvgIcon-root {
-            transition: ${theme.transitions.create(['color'])};
+            transition: ${theme.transitions.create(["color"])};
             font-size: ${theme.typography.pxToRem(24)};
             margin-right: ${theme.spacing(1)};
             color: ${theme.colors.alpha.trueWhite[50]};
@@ -94,7 +94,7 @@ const SubMenuWrapper = styled(Box)(
 
 const renderNavigationMenuItems = ({
   items,
-  path
+  path,
 }: {
   items: MenuItem[];
   path: string;
@@ -109,7 +109,7 @@ const renderNavigationMenuItems = ({
 const reduceChildRoutes = ({
   ev,
   path,
-  item
+  item,
 }: {
   ev: JSX.Element[];
   path: string;
@@ -121,7 +121,7 @@ const reduceChildRoutes = ({
     ? !!matchPath(
         {
           path: item.link,
-          end: true
+          end: true,
         },
         path
       )
@@ -132,7 +132,7 @@ const reduceChildRoutes = ({
       ? !!matchPath(
           {
             path: item.link,
-            end: false
+            end: false,
           },
           path
         )
@@ -150,7 +150,7 @@ const reduceChildRoutes = ({
       >
         {renderNavigationMenuItems({
           path,
-          items: item.items
+          items: item.items,
         })}
       </NavigationMenuItem>
     );
@@ -177,12 +177,12 @@ function NavigationMenu() {
     <>
       {menuItems.map((section) => (
         <MenuWrapper key={uuidv4()}>
-          <List component="div">
-            {renderNavigationMenuItems({
-              items: section.items,
-              path: location.pathname
-            })}
-          </List>
+            <List component="div">
+              {renderNavigationMenuItems({
+                items: section.items,
+                path: location.pathname,
+              })}
+            </List>
         </MenuWrapper>
       ))}
     </>

@@ -118,7 +118,7 @@ const projectTags = [
   { title: 'Software' }
 ];
 
-function PageHeader() {
+function PageHeader(props : any) {
   const { t }: { t: any } = useTranslation();
   const [open, setOpen] = useState<boolean>(false);
   const { enqueueSnackbar } = useSnackbar();
@@ -197,10 +197,10 @@ function PageHeader() {
       <Grid container justifyContent="space-between" alignItems="center">
         <Grid item>
           <Typography variant="h3" component="h3" gutterBottom>
-            {t('Patients')}
+            {props.title}
           </Typography>
           <Typography variant="subtitle2">
-            {t('These are your Patients')}
+            {props.desc}
           </Typography>
         </Grid>
         <Grid item>

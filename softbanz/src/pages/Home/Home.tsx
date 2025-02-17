@@ -8,7 +8,8 @@ import {
   styled,
   useTheme
 } from '@mui/material';
-import { Outlet } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
+// import { Outlet } from 'react-router-dom';
 import TopBar from './TopBar';
 import Scrollbar from '../../components/Scrollbar';
 import { SidebarContext } from '../../contexts/SidebarContext';
@@ -87,7 +88,7 @@ const TopSection = styled(Box)(
 `
 );
 
-const Home: FC<TopNavigationLayoutProps> = () => {
+const Home: FC<TopNavigationLayoutProps> = (props) => {
   const { sidebarToggle, toggleSidebar } = useContext(SidebarContext);
   const closeSidebar = () => toggleSidebar();
   const theme = useTheme();
@@ -101,7 +102,10 @@ const Home: FC<TopNavigationLayoutProps> = () => {
 
           
             <CardWrapper>
-                <PatientList />
+              
+                {/* <PatientList /> */}
+                {props.children}
+
             </CardWrapper> 
          
 

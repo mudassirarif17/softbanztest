@@ -29,7 +29,7 @@ const menuItems: MenuItems[] = [
         name: 'Patients',
         icon: BackupTableTwoToneIcon,
         badge: 'v3',
-        link: '',
+        link: '/',
         // items: [
         //   {
         //     name: 'Extended sidebar',
@@ -65,7 +65,7 @@ const menuItems: MenuItems[] = [
       {
         name: 'Shared Patients',
         icon: SmartToyTwoToneIcon,
-        link: '/top-navigation/dashboards',
+        link: '/shared_patient',
         // items: [
         //   {
         //     name: 'Reports',
