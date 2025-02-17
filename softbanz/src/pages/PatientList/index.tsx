@@ -43,7 +43,7 @@ function ManagementProjects(props:any) {
         ])
       }
     } catch (err) {
-      // console.error(err);
+      console.error(err);
     }
   }, [isMountedRef]);
 

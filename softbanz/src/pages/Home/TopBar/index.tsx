@@ -1,5 +1,3 @@
-import { useContext } from 'react';
-
 import {
   Box,
   Card,
@@ -12,10 +10,9 @@ import {
   styled,
   useTheme
 } from '@mui/material';
-import { SidebarContext } from '../../../contexts/SidebarContext';
 import NavigationMenu from './NavigationMenu';
-import LanguageSwitcher from './LanguageSwitcher';
-import Notifications from './Notifications';
+// import LanguageSwitcher from './LanguageSwitcher';
+// import Notifications from './Notifications';
 import Userbox from './Userbox';
 import Search from './Search';
 import MenuTwoToneIcon from '@mui/icons-material/MenuTwoTone';
@@ -92,12 +89,15 @@ const IconButtonPrimary = styled(IconButton)(
 `
 );
 
-function TopBar() {
+function TopBar({setOpen , open}) {
 
-  
-
-  const { sidebarToggle, toggleSidebar , mySidebarToggle } = useContext(SidebarContext);
   const theme = useTheme();
+
+  const openSidebar = () => {
+      setOpen(true)
+  }
+
+
 
   return (
     <TopBarWrapper>
@@ -144,10 +144,7 @@ function TopBar() {
                 display: { xs: 'none', sm: 'inline-flex' }
               }}
             >
-              {/* <LanguageSwitcher /> */}
-              {/* <Box mx={1}>
-                <Notifications />
-              </Box> */}
+              
             </Box>
             <Userbox />
             <Box
@@ -158,17 +155,11 @@ function TopBar() {
             >
 
               <Tooltip arrow title="Toggle Menu">
-                <IconButtonPrimary color="primary" onClick={mySidebarToggle}>
-                  {!sidebarToggle ? <MenuTwoToneIcon /> : <CloseTwoToneIcon />}
+                <IconButtonPrimary color="primary" onClick={openSidebar}>
+                  {!open ? <MenuTwoToneIcon /> : <CloseTwoToneIcon />}
                 </IconButtonPrimary>
               </Tooltip>
 
-              {/* <Tooltip arrow title="Toggle Menu">
-                <IconButtonPrimary color="primary" onClick={toggleSidebar}>
-                  {!sidebarToggle ? <MenuTwoToneIcon /> : <CloseTwoToneIcon />}
-                </IconButtonPrimary>
-              </Tooltip> */}
-              
             </Box>
           </Box>
         </Box>

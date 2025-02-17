@@ -1,4 +1,4 @@
-import { FC, ReactNode, useContext } from 'react';
+import { FC, ReactNode, useState } from 'react';
 import {
   Box,
   Drawer,
@@ -8,16 +8,14 @@ import {
   styled,
   useTheme
 } from '@mui/material';
-import { Route, Routes } from 'react-router-dom';
 // import { Outlet } from 'react-router-dom';
 import TopBar from './TopBar';
 import Scrollbar from '../../components/Scrollbar';
-import { SidebarContext } from '../../contexts/SidebarContext';
 import SidebarMenu from '../../layouts/AccentHeaderLayout/Sidebar/SidebarMenu';
 import SidebarTopSection from '../../layouts/AccentHeaderLayout/Sidebar/SidebarTopSection';
 import ThemeSettings from '../../components/ThemeSettings';
 import Logo from '../../components/LogoSign';
-import PatientList from '../PatientList/index';
+// import PatientList from '../PatientList/index';
 
 
 interface TopNavigationLayoutProps {
@@ -91,14 +89,18 @@ const TopSection = styled(Box)(
 );
 
 const Home: FC<TopNavigationLayoutProps> = (props) => {
-  const { sidebarToggle, toggleSidebar } = useContext(SidebarContext);
-  const closeSidebar = () => toggleSidebar();
   const theme = useTheme();
+
+  const [open , setOpen] = useState<boolean>(true);
+
+  const sidebarClose = () => {
+    setOpen(false)
+  }
 
   return (
     <>
       <MainWrapper>
-        <TopBar />
+        <TopBar open={open} setOpen={setOpen}/>
         <MainContent maxWidth="xl">
           <Box mx={8}>
 
@@ -114,8 +116,8 @@ const Home: FC<TopNavigationLayoutProps> = (props) => {
               display: { lg: 'none', xs: 'inline-block' }
             }}
             anchor={theme.direction === 'rtl' ? 'right' : 'left'}
-            open={sidebarToggle}
-            onClose={closeSidebar}
+            open={open}
+            onClose={sidebarClose}
             variant="temporary"
             elevation={9}
           >
