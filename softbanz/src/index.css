@@ -7,14 +7,9 @@ body {
   overflow-x: hidden;
 }
 
-
-
-
-
-/* .css-1rhrdda {
-  margin-left: 72px;
-  margin-right: 72px;
-} */
+body, html {
+  overflow-y: auto;
+}
 
 @media screen and (max-width : 600px) {
     .css-1rhrdda {
